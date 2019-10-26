@@ -21,3 +21,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/organizations', 'OrgController@index')->middleware('auth');
+Route::get('/org/new', 'OrgController@new')->middleware('auth');

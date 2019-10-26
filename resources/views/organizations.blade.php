@@ -15,7 +15,11 @@ $(document).ready(function() {
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Organizations</div>
+                <div class="card-header">Organizations
+                  <div class="card-header-corner">
+                    <a href="/org/new"><img class="icon" src="/i/plus.png"></a>
+                  </div>
+                </div>
                 <div class="card-body">
                     <table id="organizations" class="display">
                         <thead>

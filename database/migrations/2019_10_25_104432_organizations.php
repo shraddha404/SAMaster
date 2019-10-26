@@ -18,6 +18,8 @@ class Organizations extends Migration
             $table->string('name');
             $table->string('subdomain')->unique();
             $table->string('db')->unique();
+            $table->string('email');
+            $table->date('valid_till');
             $table->timestamps();
             $table->softDeletes();
         });

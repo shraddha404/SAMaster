@@ -10,4 +10,8 @@ class OrgController extends Controller
         $orgs = \App\Organization::all();
         return view('organizations', ['orgs'=>$orgs]);
     }
+
+    public function new(){
+        return view('org-form',[]);
+    }
 }
