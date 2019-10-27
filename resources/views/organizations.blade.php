@@ -25,7 +25,7 @@ $(document).ready(function() {
                         <thead>
                             <tr>
                             <th>Name</th>
-                            <th>Contact</th>
+                            <th>Email</th>
                             <th>Valid till</th>
                             <th>Subdomain</th>
                             <th>Database</th>
@@ -36,7 +36,7 @@ $(document).ready(function() {
                         @foreach ($orgs as $org)
                         <tr>
                             <td>{{ $org->name }}</td>
-                            <td>{{ $org->contact }}</td>
+                            <td>{{ $org->email }}</td>
                             <td>{{ $org->valid_till }}</td>
                             <td>{{ $org->subdomain }}</td>
                             <td>{{ $org->db }}</td>
