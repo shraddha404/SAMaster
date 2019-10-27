@@ -32,7 +32,7 @@ class OrgController extends Controller
         $org->name = $request->input('org_name');
         $org->valid_till = $request->input('valid_till');
         $org->subdomain = $request->input('subdomain');
-        $org->db = $request->input('db');
+        $org->db = empty($request->input('db')) ? $org->db : $request->input('db');
         $org->email = $request->input('email');
         $org->save();
     

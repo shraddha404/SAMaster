@@ -38,7 +38,7 @@
                    <div class="form-group row">
                    <label for="db" class="col-md-4 col-form-label text-md-right">Database</label> 
                     <div class="col-md-6">
-                    <input type="text" name="db" id="db" class="form-control" placeholder="Database name" value="{{ $org->db }}" />
+                    <input type="text" name="db" id="db" class="form-control" placeholder="Database name" value="{{ $org->db }}" @if($org->id) disabled @endif/>
                     </div>
                    </div>
                 
