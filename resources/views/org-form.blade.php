@@ -7,6 +7,13 @@
             <div class="card">
                 <div class="card-header"><a href="/">Home</a> :: <a href="/organizations">Organizations</a> :: Organization form</div>
                 <div class="card-body">
+                    <div class="flash-message">
+                    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                        @if(Session::has('alert-' . $msg))
+                        <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}</p>
+                        @endif
+                    @endforeach
+                    </div>
 
                    <form method="post" action="/org/save">
                     @csrf()
