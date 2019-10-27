@@ -33,13 +33,23 @@ class OrgController extends Controller
             $org->name = $request->input('org_name');
             $org->valid_till = $request->input('valid_till');
             $org->subdomain = $request->input('subdomain');
-            $org->db = empty($request->input('db')) ? $org->db : $request->input('db');
+            if(!empty($request->input('db'))){
+                //create a new database
+                $this->createWidgetDB($request->input('db'));
+                $org->db = $request->input('db');
+            }
             $org->email = $request->input('email');
-            $org->save();
+            try{
+                $org->save();
+            }
+            catch(\Exception $e){
+                Session::flash('alert-danger', $e->getMessage());
+                return \Redirect::back();
+            }
             return redirect('/organizations');
         }
         else{
-            return view('org-form',['org'=>$org]);
+            return \Redirect::back();
         }
     }
 
@@ -57,5 +67,10 @@ class OrgController extends Controller
             return true;
         }
        return false; 
+    }
+
+    private function createWidgetDB($db_name){
+        $db = \DB::statement("CREATE DATABASE $db_name");
+        // more code to be added here to import SQL structure with default master data
     }
 }
